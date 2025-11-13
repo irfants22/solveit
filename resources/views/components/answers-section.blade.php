@@ -17,81 +17,83 @@
     </div>
 
     <!-- Answers List -->
-    <div class="space-y-4 mb-6">
-        @forelse($question->answers as $answer)
-            <div
-                class="bg-linear-to-r from-gray-50 to-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-all duration-200">
-                <!-- Answer Body -->
-                <p class="text-gray-800 text-base leading-relaxed mb-3 whitespace-pre-line">
-                    {{ $answer->body }}
-                </p>
+    @auth
+        <div class="space-y-4 mb-6">
+            @forelse($question->answers as $answer)
+                <div
+                    class="bg-linear-to-r from-gray-50 to-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-all duration-200">
+                    <!-- Answer Body -->
+                    <p class="text-gray-800 text-base leading-relaxed mb-3 whitespace-pre-line">
+                        {{ $answer->body }}
+                    </p>
 
-                <!-- Answer Meta -->
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center text-sm text-gray-500">
-                        <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                        <span>Dijawab oleh: <span
-                                class="font-semibold text-gray-700">{{ $answer->user->name }}</span></span>
-                        <span class="mx-2 text-gray-300">•</span>
-                        <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>{{ $answer->created_at->diffForHumans() }}</span>
-                    </div>
+                    <!-- Answer Meta -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            <span>Dijawab oleh: <span
+                                    class="font-semibold text-gray-700">{{ $answer->user->name }}</span></span>
+                            <span class="mx-2 text-gray-300">•</span>
+                            <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>{{ $answer->created_at->diffForHumans() }}</span>
+                        </div>
 
-                    <!-- Action Buttons (Owner) -->
-                    @if (Auth::id() === $answer->user_id)
-                        <div class="flex items-center space-x-2">
-                            <a href="{{ route('answers.edit', $answer->id) }}"
-                                class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
-                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-                                    </path>
-                                </svg>
-                                Edit
-                            </a>
-                            <form action="{{ route('answers.destroy', $answer->id) }}" method="POST"
-                                class="delete-answer-form inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors duration-200">
-                                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
+                        <!-- Action Buttons (Owner) -->
+                        @if (Auth::id() === $answer->user_id)
+                            <div class="flex items-center space-x-2">
+                                <a href="{{ route('answers.edit', $answer->id) }}"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+                                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                                         </path>
                                     </svg>
-                                    Hapus
-                                </button>
-                            </form>
-                        </div>
-                    @endif
+                                    Edit
+                                </a>
+                                <form action="{{ route('answers.destroy', $answer->id) }}" method="POST"
+                                    class="delete-answer-form inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors duration-200 cursor-pointer">
+                                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
+                                        </svg>
+                                        Hapus
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
                 </div>
-            </div>
-        @empty
-            <div class="text-center py-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
-                <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                    </path>
-                </svg>
-                <p class="text-gray-500 text-lg font-medium">Belum ada jawaban untuk pertanyaan ini</p>
-                <p class="text-gray-400 text-sm mt-2">Jadilah yang pertama untuk menjawab!</p>
-            </div>
-        @endforelse
-    </div>
+            @empty
+                <div class="text-center py-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
+                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                        </path>
+                    </svg>
+                    <p class="text-gray-500 text-lg font-medium">Belum ada jawaban untuk pertanyaan ini</p>
+                    <p class="text-gray-400 text-sm mt-2">Jadilah yang pertama untuk menjawab!</p>
+                </div>
+            @endforelse
+        </div>
 
-    <!-- Divider -->
-    <div class="border-t border-gray-200 my-6"></div>
+        <!-- Divider -->
+        <div class="border-t border-gray-200 my-6"></div>
+    @endauth
 
     <!-- Form tambah jawaban -->
     @auth

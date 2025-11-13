@@ -18,7 +18,7 @@
 
         <div>
             <label class="block text-sm font-medium text-gray-700">Isi Pertanyaan</label>
-            <textarea name="body" rows="5"
+            <textarea id="create-editor" name="body" rows="5"
                 class="w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500">{{ old('body') }}</textarea>
             @error('body')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

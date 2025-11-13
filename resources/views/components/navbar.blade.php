@@ -39,7 +39,7 @@
                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit"
-                                    class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-lg text-white font-medium transition duration-200">
+                                    class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-lg text-white font-medium transition duration-200 cursor-pointer">
                                     Logout
                                 </button>
                             </form>
@@ -91,15 +91,20 @@
                         </div>
                         <form id="logout-form" method="POST" action="{{ route('logout') }}">
                             @csrf
-                            {{-- <button type="submit"
-                            class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-lg text-white font-medium transition duration-200">
-                            Logout
-                        </button> --}}
                             <button type="submit"
-                                class="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white font-medium transition duration-200">
+                                class="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white font-medium transition duration-200 cursor-pointer">
                                 Logout
                             </button>
                         </form>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="mr-2 w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white font-medium transition duration-200">
+                            Login
+                        </a>
+                        <a href="{{ route('register') }}"
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white font-medium transition duration-200">
+                            Daftar
+                        </a>
                     @endauth
                 </div>
             </div>

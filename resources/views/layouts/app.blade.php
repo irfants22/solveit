@@ -33,6 +33,37 @@
         <p>&copy; {{ date('Y') }} SolveIt. All rights reserved.</p>
     </footer>
 
+    {{-- CKEditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
+    <script>
+        function initEditor(selector) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+
+            ClassicEditor.create(el, {
+                    toolbar: [
+                        'undo', 'redo', '|',
+                        'heading', '|',
+                        'bold', 'italic', 'blockQuote', 'link', '|',
+                        'bulletedList', 'numberedList'
+                    ]
+                })
+                .then(editor => console.log(`CKEditor aktif di ${selector}`))
+                .catch(error => console.error('CKEditor gagal:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initEditor('#create-editor');
+            initEditor('#edit-editor');
+        });
+
+        document.addEventListener('boost:load', () => {
+            initEditor('#create-editor');
+            initEditor('#edit-editor');
+        });
+    </script>
+
+
     @if (session('success'))
         <script type="module">
             document.addEventListener('DOMContentLoaded', function() {

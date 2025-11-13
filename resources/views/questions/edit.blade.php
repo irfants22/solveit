@@ -16,8 +16,8 @@
 
         <div>
             <label class="block text-sm font-medium text-gray-700">Isi Pertanyaan</label>
-            <textarea name="body" rows="5"
-                class="w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500">{{ old('content', $question->content) }}</textarea>
+            <textarea id="edit-editor" name="body" rows="5"
+                class="w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500">{{ old('content', $question->body) }}</textarea>
         </div>
 
         <div>
