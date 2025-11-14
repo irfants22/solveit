@@ -2,9 +2,8 @@
 
 @section('content')
     <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">Daftar Akun Baru</h1>
-            <p class="text-gray-600">Buat akun untuk mulai bertanya dan berbagi pengetahuan</p>
+        <div class="text-left mb-6">
+            <h1 class="text-2xl font-bold mb-6 text-gray-700">Register</h1>
         </div>
 
         <form action="{{ route('register') }}" method="POST" class="space-y-6">
@@ -126,7 +125,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                     </svg>
-                    Daftar Sekarang
+                    Register
                 </button>
             </div>
 

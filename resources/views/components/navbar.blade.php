@@ -50,7 +50,7 @@
                             </a>
                             <a href="{{ route('register') }}"
                                 class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-lg text-white font-medium transition duration-200">
-                                Daftar
+                                Register
                             </a>
                         @endauth
                     </div>
@@ -103,7 +103,7 @@
                         </a>
                         <a href="{{ route('register') }}"
                             class="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white font-medium transition duration-200">
-                            Daftar
+                            Register
                         </a>
                     @endauth
                 </div>
