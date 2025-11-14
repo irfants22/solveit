@@ -1,16 +1,13 @@
-Deskripsi singkat tentang project Anda.
+## Final Project SolveIt
 
-## ERD
+# ERD
 
-![Lihat Gambar](https://drive.google.com/file/d/1r78StyEYrnSRFz6sZzv9BRZDVUha6kmS/view?usp=sharing)
-*Gambar ERD SolveIt*
+Link: https://drive.google.com/file/d/1r78StyEYrnSRFz6sZzv9BRZDVUha6kmS/view?usp=sharing
 
-## Video Demo
+# Video Demo
 
-[![Lihat Video Demo](https://drive.google.com/file/d/1YUfNk-2jV_X_3TxjbvldGAZAKNm2l_Ea/view?usp=sharing)
-*Video Demo SolveIt*
+Link: https://drive.google.com/file/d/1YUfNk-2jV_X_3TxjbvldGAZAKNm2l_Ea/view?usp=sharing
 
-## Website URL
+# Website URL
 
-**[Lihat Website URL](https://solveit-production.up.railway.app/)**
-*Website URL SolveIt*
+Link: https://solveit-production.up.railway.app/
